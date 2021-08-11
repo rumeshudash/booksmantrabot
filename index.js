@@ -26,7 +26,7 @@ app.use(bot.webhook('/webhook'));
 bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
     if( message.isTextMessage() ) {
         let msg = message.getText().toLowerCase();
-        console.log( msg );
+        console.log('Req:', msg );
         if( msg.indexOf( "code" ) > -1 || msg.indexOf( "fpl" ) > -1 ) {
             bot.sendReadedAction(userId);
             bot.sendTypingAction(userId);
