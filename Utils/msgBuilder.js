@@ -8,7 +8,7 @@ const getUserProfile = ( user_id ) => {
     return BOT.getProfile(user_id).then( data => {
         return Promise.resolve(data);
     } ).catch( () => {
-        return Promise.reject();
+        return Promise.resolve();
     });
 }
 
