@@ -36,6 +36,7 @@ bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
                 try{
                     const reply = await msgBuilder.getFPLCodeMessage( message );
                     bot.sendTextMessage(userId, reply);
+                    bot.sendReadedAction(userId);
                 } catch(e) {
                     console.error(e);
                 }
