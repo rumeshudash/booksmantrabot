@@ -39,9 +39,9 @@ bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
     }
 });
 
-if (process.env.NODE_ENV !== 'production') {
+// if (process.env.NODE_ENV !== 'production') {
     server.listen(port, () => console.log('Server is listening on port ' + port));
-} else {
-    
-    server.listen(()=> console.log("Started Production"));
-}
+// } else {
+
+//     server.listen(()=> console.log("Started Production"));
+// }
