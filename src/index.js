@@ -15,6 +15,8 @@ var bot = MessengerPlatform.create({
     pageToken: process.env.PAGE_TOKEN,
 }, server);
 
+const port = process.env.PORT || 80;
+
 app.get('/', function(req, res) {
     res.status(200).send('Welcome to Booksmantra FB Messenger Bot!');
 })
@@ -37,4 +39,4 @@ bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
     }
 });
 
-server.listen( () => console.log('Express server is listening on port 8080'));
+server.listen(port, () => console.log('Express server is listening on port ' + port));
