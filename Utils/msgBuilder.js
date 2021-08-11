@@ -5,11 +5,7 @@ const init = ( bot ) => {
 }
 
 const getUserProfile = ( user_id ) => {
-    return BOT.getProfile(user_id).then( data => {
-        return Promise.resolve(data);
-    } ).catch( () => {
-        return Promise.resolve();
-    });
+    return BOT.getProfile(user_id);
 }
 
 const getFPLCodeMessage = async( message ) => {
