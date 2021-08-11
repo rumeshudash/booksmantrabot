@@ -27,14 +27,18 @@ bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
     if( message.isTextMessage() ) {
         let msg = message.getText().toLowerCase();
         console.log('Req:', msg );
-
+        
         if( msg.indexOf( "code" ) > -1 || msg.indexOf( "fpl" ) > -1 ) {
             bot.sendReadedAction(userId);
             bot.sendTypingAction(userId);
 
-            setTimeout( () => {
-                const reply = await msgBuilder.getFPLCodeMessage( message );
-                bot.sendTextMessage(userId, reply);
+            setTimeout( async () => {
+                try{
+                    const reply = await msgBuilder.getFPLCodeMessage( message );
+                    bot.sendTextMessage(userId, reply);
+                } catch(e) {
+                    console.error(e);
+                }
             }, 500 )
         }
     }
