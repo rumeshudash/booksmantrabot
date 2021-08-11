@@ -32,8 +32,12 @@ bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
             bot.sendTypingAction(userId);
 
             setTimeout( async () => {
-                const reply = await msgBuilder.getFPLCodeMessage( message );
-                bot.sendTextMessage(userId, reply);
+                try{
+                    const reply = await msgBuilder.getFPLCodeMessage( message );
+                    bot.sendTextMessage(userId, reply);
+                } catch(e) {
+                    console.error(e);
+                }
             }, 500 )
         }
     }
