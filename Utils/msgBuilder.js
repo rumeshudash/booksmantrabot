@@ -13,7 +13,12 @@ const getUserProfile = ( user_id ) => {
 }
 
 const getFPLCodeMessage = async( message ) => {
-    const profile = await getUserProfile( message.getUserId() );
+    let profile = null;
+    try {
+        profile = await getUserProfile( message.getUserId() );
+    } catch (e) {
+        console.log( e );
+    }
 
     return `${profile && profile.first_name ? 'Dear ' + profile.first_name + ', ' : ''}FPL Code:  L91s6q
 
